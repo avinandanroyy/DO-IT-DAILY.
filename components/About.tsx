@@ -1,47 +1,100 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import CartoonCharacter from './CartoonCharacter';
 
 const About: React.FC = () => {
   return (
-    <section className="w-full py-24 bg-gray-50 border-t border-gray-200">
-      <div className="max-w-5xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row gap-12 items-center">
+    <section className="w-full py-24 bg-gradient-to-b from-purple-50/50 to-white dark:from-gray-900 dark:to-gray-800 relative overflow-hidden transition-colors duration-300">
+      {/* Background decorations */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/20 dark:bg-blue-900/30 rounded-full blur-3xl" />
+      
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="flex flex-col md:flex-row gap-16 items-center">
           
-          <div className="w-full md:w-1/2 aspect-square relative grayscale contrast-125">
-          
-             <img 
-               src="https://picsum.photos/800/800?grayscale" 
-               alt="The Creator" 
-               className="w-full h-full object-cover"
-             />
-             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent mix-blend-multiply"></div>
-             <div className="absolute bottom-6 left-6 text-white font-mono text-xs uppercase tracking-widest">
-                [ The Architect ]
-             </div>
-          </div>
+          {/* Image section */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full md:w-1/2 aspect-square relative"
+          >
+            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="https://picsum.photos/800/800?grayscale" 
+                alt="The Creator" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 via-blue-900/40 to-transparent" />
+              <div className="absolute bottom-8 left-8 text-white">
+                <div className="font-mono text-xs uppercase tracking-widest mb-2 opacity-80">
+                  [ The Architect ]
+                </div>
+                <div className="text-2xl font-bold">Building the Future</div>
+              </div>
+            </div>
+            
+            {/* Floating cartoon character */}
+            <motion.div
+              className="absolute -bottom-8 -right-8 w-32 h-32 opacity-30"
+              animate={{
+                y: [0, -10, 0],
+                rotate: [0, 5, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <CartoonCharacter variant="hero" className="w-full h-full" />
+            </motion.div>
+          </motion.div>
 
-          <div className="w-full md:w-1/2">
-            <h2 className="text-3xl font-bold uppercase tracking-tight mb-6">
-              Why I Built This
+          {/* Content section */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full md:w-1/2"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 dark:bg-purple-900/50 rounded-full text-sm font-medium text-purple-700 dark:text-purple-300 mb-6">
+              <span>About</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+              <span className="bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text text-transparent">
+                Why I Built
+              </span>
+              <br />
+              <span className="text-gray-900 dark:text-white">This</span>
             </h2>
-            <div className="prose prose-lg text-gray-700">
-              <p className="mb-4">
-                I realized that <span className="font-bold text-black">willpower is a myth</span>. Environment is everything.
+            
+            <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+              <p>
+                I realized that <span className="font-bold text-gray-900 dark:text-white">willpower is a myth</span>. Environment is everything.
               </p>
               <p>
-                <b>do-it-daily</b> isn't just an app. It's the digital environment I built to force myself to succeed. It's sharp, unforgiving, and effective. I built it for myself, but you can use it too.
+                <span className="font-bold bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text text-transparent">
+                  do-it-daily
+                </span> isn't just an app. It's the digital environment I built to force myself to succeed. It's sharp, unforgiving, and effective. I built it for myself, but you can use it too.
               </p>
             </div>
             
-            <div className="mt-8 pt-8 border-t border-gray-300 flex items-center gap-4">
-               <div className="h-12 w-12 bg-black text-white flex items-center justify-center font-bold text-xl">
-                 AR
-               </div>
-               <div>
-                 <div className="font-bold uppercase tracking-wider text-sm">Avinandan Roy</div>
-                 <div className="text-xs text-gray-500 font-mono">Developer & Designer</div>
-               </div>
-            </div>
-          </div>
+            <motion.div
+              whileHover={{ scale: 1.02, x: 5 }}
+              className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 flex items-center gap-4 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl p-6"
+            >
+              <div className="h-16 w-16 bg-gradient-to-br from-purple-600 to-blue-600 dark:from-purple-500 dark:to-blue-500 text-white flex items-center justify-center font-bold text-xl rounded-full shadow-lg">
+                AR
+              </div>
+              <div>
+                <div className="font-bold text-lg text-gray-900 dark:text-white">Avinandan Roy</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">Developer & Designer</div>
+              </div>
+            </motion.div>
+          </motion.div>
 
         </div>
       </div>
