@@ -64,7 +64,7 @@ const CartoonCharacter: React.FC<CartoonCharacterProps> = ({ variant = 'hero', c
           strokeLinecap="round"
           animate={{ rotate: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          transformOrigin="70 130"
+          style={{ transformOrigin: "70px 130px" }}
         />
         <motion.line
           x1="130"
@@ -76,7 +76,7 @@ const CartoonCharacter: React.FC<CartoonCharacterProps> = ({ variant = 'hero', c
           strokeLinecap="round"
           animate={{ rotate: [0, -10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          transformOrigin="130 130"
+          style={{ transformOrigin: "130px 130px" }}
         />
         {/* Legs */}
         <line x1="85" y1="170" x2="85" y2="190" stroke="#333" strokeWidth="4" strokeLinecap="round" />
@@ -188,7 +188,7 @@ const CartoonCharacter: React.FC<CartoonCharacterProps> = ({ variant = 'hero', c
           strokeWidth="3"
           animate={{ rotate: [0, 5, 0] }}
           transition={{ duration: 1, repeat: Infinity }}
-          transformOrigin="100 115"
+          style={{ transformOrigin: "100px 115px" }}
         />
         
         {/* Running legs */}
