@@ -1,6 +1,6 @@
 import React from 'react';
 import { Target, Users, Zap, BarChart3, Lock, Repeat } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import CartoonCharacter from './CartoonCharacter';
 
 type Feature = {
@@ -67,7 +67,7 @@ const Features: React.FC = () => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -113,7 +113,7 @@ const Features: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <motion.div
               key={feature.id}
               variants={itemVariants}
