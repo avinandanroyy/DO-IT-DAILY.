@@ -6,7 +6,6 @@ import Testimonials from './components/Testimonial';
 import Pricing from './components/Pricing';
 import About from './components/About';
 import Footer from './components/Footer';
-import ThemeToggle from './components/ThemeToggle';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +16,7 @@ const App: React.FC = () => {
   });
 
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white selection:bg-purple-600 dark:selection:bg-purple-500 selection:text-white transition-colors duration-300">
+    <div className="w-full min-h-screen bg-white text-black selection:bg-purple-600 selection:text-white">
       {/* Navigation */}
       <motion.nav
         initial={{ y: -100 }}
@@ -25,36 +24,35 @@ const App: React.FC = () => {
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 w-full z-50 px-6 py-4 md:px-12 flex justify-between items-center transition-all duration-300 ${
           scrolled
-            ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg border-b border-gray-200 dark:border-gray-800'
+            ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-200'
             : 'bg-transparent'
         }`}
       >
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="text-gray-900 dark:text-white text-xl font-bold tracking-tighter cursor-pointer flex items-center gap-2"
+          className="text-gray-900 text-xl font-bold tracking-tighter cursor-pointer flex items-center gap-2"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
             do-it-daily
           </span>
-          <span className="text-gray-400 dark:text-gray-500">.</span>
+          <span className="text-gray-400">.</span>
         </motion.div>
         
         <div className="flex items-center gap-4">
           <a
             href="#features"
-            className="hidden md:block text-gray-700 dark:text-gray-300 text-sm font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+            className="hidden md:block text-gray-700 text-sm font-medium hover:text-purple-600 transition-colors"
           >
             Features
           </a>
           <a
             href="#pricing"
-            className="hidden md:block text-gray-700 dark:text-gray-300 text-sm font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
+            className="hidden md:block text-gray-700 text-sm font-medium hover:text-purple-600 transition-colors"
           >
             Pricing
           </a>
-          <ThemeToggle />
           <motion.a
             href="#pricing"
             whileHover={{ scale: 1.05 }}

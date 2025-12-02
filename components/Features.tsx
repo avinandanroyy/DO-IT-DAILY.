@@ -1,7 +1,6 @@
 import React from 'react';
 import { Target, Users, Zap, BarChart3, Lock, Repeat } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
-import CartoonCharacter from './CartoonCharacter';
 
 type Feature = {
   id: number;
@@ -80,9 +79,9 @@ const Features: React.FC = () => {
   };
 
   return (
-    <section className="w-full py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
+    <section className="w-full py-24 bg-white">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/30 dark:via-purple-900/20 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-50/30" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
@@ -94,13 +93,13 @@ const Features: React.FC = () => {
           className="mb-16 text-center"
         >
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 dark:from-purple-400 dark:via-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600">
               Systematic
             </span>
             <br />
-            <span className="text-gray-900 dark:text-white">Excellence</span>
+            <span className="text-gray-900">Excellence</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600">
             Everything you need to build unbreakable habits and maintain consistency
           </p>
         </motion.div>
@@ -118,10 +117,10 @@ const Features: React.FC = () => {
               key={feature.id}
               variants={itemVariants}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="group relative bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-transparent dark:hover:border-transparent hover:shadow-2xl dark:hover:shadow-purple-900/20 transition-all duration-300 overflow-hidden"
+              className="group relative bg-white rounded-2xl p-8 border border-gray-200 hover:border-transparent hover:shadow-2xl transition-all duration-300 overflow-hidden"
             >
               {/* Gradient background on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 dark:opacity-0 group-hover:opacity-5 dark:group-hover:opacity-10 transition-opacity duration-300`} />
+              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
               
               {/* Icon */}
               <motion.div
@@ -133,16 +132,16 @@ const Features: React.FC = () => {
               </motion.div>
 
               {/* Content */}
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 dark:group-hover:from-purple-400 dark:group-hover:to-blue-400 transition-all duration-300">
+              <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 transition-all duration-300">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+              <p className="text-gray-600">
                 {feature.description}
               </p>
 
               {/* Learn more link */}
               <motion.div
-                className="flex items-center gap-2 text-sm font-semibold text-gray-400 dark:text-gray-500 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors"
+                className="flex items-center gap-2 text-sm font-semibold text-gray-400 group-hover:text-purple-600 transition-colors"
                 whileHover={{ x: 5 }}
               >
                 <span>Learn more</span>
@@ -155,22 +154,9 @@ const Features: React.FC = () => {
               </motion.div>
 
               {/* Decorative element */}
-              <div className={`absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br ${feature.gradient} opacity-10 dark:opacity-5 rounded-full blur-2xl group-hover:opacity-20 dark:group-hover:opacity-10 transition-opacity duration-300`} />
+              <div className={`absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br ${feature.gradient} opacity-10 rounded-full blur-2xl group-hover:opacity-20 transition-opacity duration-300`} />
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Bottom decoration with cartoon character */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 flex justify-center"
-        >
-          <div className="w-32 h-32 opacity-30">
-            <CartoonCharacter variant="runner" className="w-full h-full" />
-          </div>
         </motion.div>
       </div>
     </section>

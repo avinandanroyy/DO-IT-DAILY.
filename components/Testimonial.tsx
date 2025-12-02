@@ -63,12 +63,12 @@ const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <section className="w-full py-32 bg-black dark:bg-gray-900 text-white overflow-hidden relative transition-colors duration-300">
+    <section className="w-full py-32 bg-black text-white overflow-hidden relative">
       <div className="max-w-5xl mx-auto px-6 md:px-12 mb-12 flex items-end justify-between">
          <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight">
             Proof of <br/> Work
           </h2>
-          <div className="hidden md:block text-xs font-mono uppercase tracking-widest opacity-60 dark:opacity-70">
+          <div className="hidden md:block text-xs font-mono uppercase tracking-widest opacity-60">
             [ Community Feed ]
           </div>
       </div>
@@ -89,22 +89,22 @@ const Testimonials: React.FC = () => {
           {duplicatedTestimonials.map((t, index) => (
             <div
               key={`${t.id}-${index}`}
-              className="relative w-[350px] md:w-[450px] bg-neutral-900 dark:bg-gray-800 border border-neutral-800 dark:border-gray-700 p-10 flex flex-col justify-between shrink-0 select-none hover:border-neutral-600 dark:hover:border-gray-600 transition-colors duration-300"
+              className="relative w-[350px] md:w-[450px] bg-neutral-900 border border-neutral-800 p-10 flex flex-col justify-between shrink-0 select-none hover:border-neutral-600 transition-colors duration-300"
             >
               <div className="mb-8">
                  <span className="text-6xl font-serif leading-none opacity-20">"</span>
-                 <p className="text-xl md:text-2xl font-medium leading-tight -mt-4 relative z-10">
+                 <p className="text-xl md:text-2xl font-medium leading-tight -mt-4 relative z-10 text-white">
                    {t.quote}
                  </p>
               </div>
               
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-neutral-800 dark:bg-gray-700 overflow-hidden relative grayscale">
+                <div className="w-12 h-12 bg-neutral-800 overflow-hidden relative grayscale">
                   <img src={t.image} alt={t.name} className="object-cover w-full h-full" />
                 </div>
                 <div>
-                  <div className="font-bold uppercase tracking-wider text-sm">{t.name}</div>
-                  <div className="text-xs text-neutral-400 dark:text-gray-400 font-mono mt-1">{t.role}</div>
+                  <div className="font-bold uppercase tracking-wider text-sm text-white">{t.name}</div>
+                  <div className="text-xs text-neutral-400 font-mono mt-1">{t.role}</div>
                 </div>
               </div>
             </div>
