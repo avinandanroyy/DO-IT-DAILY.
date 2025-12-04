@@ -22,6 +22,5 @@ Here is what I used to build this:
 
 *   **React + TypeScript** (using Vite for the build tool)
 *   **Tailwind CSS** for all the styling
-*   **Three.js** (@react-three/fiber) for the particle wave background
 *   **Framer Motion** for the text reveals
 *   **Lucide React** for the icons
